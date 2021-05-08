@@ -3,17 +3,15 @@ import { useReducer } from "react";
 
 export default function App() {
   const nums = [2, 4, 6];
-  let state = 0;
+  const initialState = 0;
 
-  function sum(num) {
-    state = state + num;
+  function reducer(state, value) {
+    return state + value;
   }
 
-  nums.forEach(sum);
+  let sum = nums.reduce(reducer, initialState);
 
-  console.log("state", state);
-  sum(8);
-  console.log(" state for sum evaluated in 8", state);
+  console.log(sum);
 
   return (
     <div className="App">
